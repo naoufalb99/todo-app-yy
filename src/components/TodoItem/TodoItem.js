@@ -1,22 +1,23 @@
 import clsx from 'clsx';
+import { createUseStyles } from 'react-jss';
 import { useDispatch } from 'react-redux';
 import { TODO_CHECKBOX_COLORS } from '../../constants';
 import { toggleTodo } from '../../store/todos';
 import { getRandomElementFromArray } from '../../utils/array';
-import styles from './TodoItem.module.css';
+
+import styles from './TodoItem.styles.js';
+
+const useStyles = createUseStyles(styles);
 
 function TodoItemCheckbox({ color, completed }) {
-    return (
-        <div
-            className={clsx(styles.checkbox, completed && styles.completed)}
-            style={{
-                '--checkbox-color': color,
-            }}
-        />
-    );
+    const classes = useStyles({ completed, color });
+
+    return <div className={classes.checkbox} />;
 }
 
 function TodoItem({ completed, id, text }) {
+    const classes = useStyles({ completed });
+
     const disptach = useDispatch();
 
     const handleToogle = () => {
@@ -25,7 +26,7 @@ function TodoItem({ completed, id, text }) {
 
     return (
         <div
-            className={clsx(styles.box, completed && styles.completed)}
+            className={clsx(classes.box, completed && classes.completed)}
             onClick={handleToogle}
         >
             <TodoItemCheckbox
