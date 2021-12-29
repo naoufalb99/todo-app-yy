@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoItem /> should match a snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <TodoItem
+    completed={false}
+    id={1}
+    text="Learn React"
+  >
+    <div
+      className="box-0-2-1 box-d0-0-2-3"
+      onClick={[Function]}
+    >
+      <TodoItemCheckbox
+        color="#F0473E"
+        completed={false}
+      >
+        <div
+          className="checkbox-0-2-2 checkbox-d3-0-2-6"
+        />
+      </TodoItemCheckbox>
+      Learn React
+    </div>
+  </TodoItem>
+</Provider>
+`;
